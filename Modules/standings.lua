@@ -170,8 +170,8 @@ function bepgp_standings:Refresh()
   local members = bepgp:buildRosterTable()
   table.wipe(data)
   for k,v in pairs(members) do
-    local ep = bepgp:get_ep(v.name,v.onote) or 0
-    if ep > 0 then
+    local ep = bepgp:get_ep(v.name,v.onote)
+    if ep then
       local gp = bepgp:get_gp(v.name,v.onote) or bepgp.VARS.basegp
       local pr = ep/gp
       local eClass, class, hexclass = bepgp:getClassData(v.class)
